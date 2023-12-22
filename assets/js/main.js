@@ -1,29 +1,49 @@
 let rgbCode = document.querySelector("#rgbCode")
-
+// let rgbCodeValue = document.querySelector("#rgbCode").value
+let output = document.querySelector("#output")
 let color = Array.from(document.querySelectorAll("#color"))
-console.log(color);
+
+console.log(color[0]);
 console.log(color.length);
 
-let colorValue = Math.round(0xfffff * Math.random())
-    let r = colorValue >> 16
-    let g = colorValue >> 8 & 255
-    let b = colorValue & 255
-    let colorTest = [r, g, b]
+let random = Math.round(Math.random() * (color.length -1))
+console.log("random", random);
 
 let randomRGB = () => {
-    rgbCode.innerHTML = 'rgb(' + r + ', ' + g + ', ' + b + ')';
+    for (let i = 0; i < color.length; i++) {
+        r = Math.round(Math.random() * 255) + 1
+        g = Math.round(Math.random() * 255) + 1
+        b = Math.round(Math.random() * 255) + 1
+
+        let rgb = `rgb(${r}, ${g}, ${b}) `
+
+        color[i].style.backgroundColor = rgb
+        if (i === random) {
+            rgbCode.innerHTML = rgb
+        }
+        color[i].addEventListener("click", () => {
+            if (random === color.indexOf(event.target)) {
+                output.innerHTML = "richtig"
+            } else {
+                output.innerHTML = "falsch"
+            }
+        })
+    }
+        // console.log(color[0]);
+        // console.log(color[1]);
+        // console.log(color[2]);
+        // console.log(color[3]);
+        // console.log(color[4]);
 }
 
 randomRGB()
 
 
-for (let i = 0; i < color.length; i++) {
-    colorValue = Math.round(0xfffff * Math.random())
-    r = colorValue >> 16
-    g = colorValue >> 8 & 255
-    b = colorValue & 255
-    colorTest = [r, g, b]
-    color[i].style.backgroundColor = `rgb(${r}, ${g}, ${b}) `
+let reset = () => {
+    output.innerHTML = ""
+    randomRGB()
 }
 
-console.log(colorTest);
+
+
+
