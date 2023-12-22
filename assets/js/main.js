@@ -1,10 +1,9 @@
 let rgbCode = document.querySelector("#rgbCode")
-// let rgbCodeValue = document.querySelector("#rgbCode").value
 let output = document.querySelector("#output")
 let color = Array.from(document.querySelectorAll("#color"))
 
-console.log(color[0]);
-console.log(color.length);
+// console.log(color[0]);
+// console.log(color.length);
 
 let random = Math.round(Math.random() * (color.length -1))
 console.log("random", random);
