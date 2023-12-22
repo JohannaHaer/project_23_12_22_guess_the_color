@@ -3,9 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Guess a color</title>
 </head>
 <body>
+    <h2>Guess what color <span id="rgbCode"></span> is:</h2>
+    <section onsubmit="choose(); return false" class="boxes">
+        <div onclick="choose()" id="color"></div>
+        <div id="color"></div>
+        <div id="color"></div>
+        <div id="color"></div>
+        <div id="color"></div>
+    </section>
+    <button onclick="reset()">Reset Me</button>
+    <p id="output"></p>
     <script src="./assets/js/main.js"></script>
 </body>
 </html>
